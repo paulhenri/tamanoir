@@ -1,0 +1,4 @@
+<h1>
+Add a company
+</h1>
+<%= render "_form.html", Map.put(assigns, :action, Routes.company_path(@conn, :create) ) %>

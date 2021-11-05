@@ -66,6 +66,8 @@ defmodule TamanoirWeb do
       # Import basic rendering functionality (render, render_layout, etc)
       import Phoenix.View
 
+      import Phoenix.LiveView.Helpers
+
       import TamanoirWeb.ErrorHelpers
       import TamanoirWeb.Gettext
       alias TamanoirWeb.Router.Helpers, as: Routes

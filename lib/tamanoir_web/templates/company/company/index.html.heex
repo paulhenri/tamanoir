@@ -1,0 +1,7 @@
+<h1> Liste des sociétés </h1>
+<%= link "Add a company", to: Routes.company_path(@conn, :new) %>
+<ul>
+<%= for companies <- @companies do %>
+<li><%= companies.name %>  <%= link "Edit", to: Routes.company_path(@conn, :update, companies.id) %></li>
+<% end %>
+</ul>

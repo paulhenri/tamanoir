@@ -1,0 +1,19 @@
+<h1>User list</h1>
+<table name="user_list">
+<thead>
+<tr>
+<th>#ID</th>
+<th>Email</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<%= for user <- @users do %>
+<tr>
+<td><%= user.id %></td>
+<td><%= user.email %></td>
+<td>Edit | Delete</td>
+</tr>
+<% end %>
+</tbody>
+</table>

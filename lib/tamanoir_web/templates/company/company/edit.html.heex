@@ -1,0 +1,4 @@
+<h1>
+Edit company informations
+</h1>
+<%= render "_form.html", Map.put(assigns, :action, Routes.company_path(@conn, :update, @company.id) ) %>

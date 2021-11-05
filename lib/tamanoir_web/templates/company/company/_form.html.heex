@@ -1,0 +1,20 @@
+<%= form_for @changeset, @action, fn f -> %>
+<label>Company name
+<%= text_input f, :name %>
+<%= error_tag f, :name %>
+</label>
+<label>Adress <br />
+<%= text_input f, :address_1 %>
+<%= error_tag f, :address_1 %>
+<br />
+<%= text_input f, :address_2 %>
+<%= error_tag f, :address_2 %>
+<br />
+<%= text_input f, :address_3 %>
+<%= error_tag f, :address_3 %>
+</label>
+<label>Zip Code <%= text_input f, :zip_code %> <%= error_tag f, :zip_code %> </label>
+<label>City <%= text_input f, :city  %> <%= error_tag f, :city %></label>
+<%= submit "Submit" %>
+<%= link "Back", to: Routes.company_path(@conn, :index) %>
+<% end %>
