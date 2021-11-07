@@ -16,9 +16,12 @@ defmodule TamanoirWeb.UserAdministrationController do
     render(conn, "index.html", users: lt_users)
   end
 
-  def edit(conn, %{"id" => id}) do
-    user = Accounts.get_user!(id)
-    render(conn, "edit.html", user: user)
+
+  def show(conn, %{"id" =>id}) do
+    user = Accounts.get_user_with_companies!(id)
+    render(conn, "show.html", user: user)
   end
+
+
 
 end

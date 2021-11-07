@@ -1,0 +1,26 @@
+<h1>User details - <%= @user.email %></h1>
+<div><b>Email :</b> <%= @user.email %>
+</div>
+<div><b> Companies </b>
+<br />
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Company name</th>
+<th>City</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<%= for company <- @user.company do %>
+<tr>
+<td><%= company.id %></td>
+<td><%= company.name %></td>
+<td><%= company.city %></td>
+<td>Delete</td>
+</tr>
+<% end  %>
+</tbody>
+</table>
+</div>

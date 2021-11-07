@@ -8,7 +8,7 @@ defmodule Tamanoir.Accounts.User do
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
 
-    many_to_many :company, Tamanoir.Accounts.User, join_through: Tamanoir.User_Company
+    many_to_many :company, Tamanoir.Company.Company, join_through: Tamanoir.User_Company
 
     timestamps()
   end

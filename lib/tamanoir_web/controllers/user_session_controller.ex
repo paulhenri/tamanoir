@@ -5,7 +5,9 @@ defmodule TamanoirWeb.UserSessionController do
   alias TamanoirWeb.UserAuth
 
   def new(conn, _params) do
-    render(conn, "new.html", error_message: nil)
+    conn
+      |> put_layout("login_layout.html")
+      |> render("new.html", error_message: nil)
   end
 
   def create(conn, %{"user" => user_params}) do

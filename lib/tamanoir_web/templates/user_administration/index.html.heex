@@ -12,7 +12,7 @@
 <tr>
 <td><%= user.id %></td>
 <td><%= user.email %></td>
-<td>Edit | Delete</td>
+<td><%= link "Show", to: Routes.user_administration_path(@conn, :show, user.id) %></td>
 </tr>
 <% end %>
 </tbody>

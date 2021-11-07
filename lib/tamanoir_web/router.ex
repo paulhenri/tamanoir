@@ -17,7 +17,7 @@ defmodule TamanoirWeb.Router do
   end
 
   scope "/", TamanoirWeb do
-    pipe_through :browser
+    pipe_through [:browser, :require_authenticated_user]
 
     get "/", PageController, :index
   end
@@ -70,6 +70,7 @@ defmodule TamanoirWeb.Router do
     get "/companies/edit/:id", Company.CompanyController, :edit
     put "/companies/edit/:id", Company.CompanyController, :update
     get "/users/administration/index", UserAdministrationController, :index
+    get "/users/administration/show/:id", UserAdministrationController, :show
   end
 
   scope "/", TamanoirWeb do
