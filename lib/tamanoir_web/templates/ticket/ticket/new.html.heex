@@ -1,0 +1,79 @@
+
+          <div class="container px-6 mx-auto grid">
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+              New ticket
+            </h2>
+
+<%= form_for @changeset, Routes.ticket_path(@conn, :create), fn f -> %>
+
+            <div
+              class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+            >
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400 font-semibold">
+                  Company
+                </span>
+
+                <%= select f, :company_id, Enum.map(@companies, &{&1.name, &1.id}),
+                class: "block
+                        w-full
+                        mt-1
+                        text-sm
+                        dark:text-gray-300
+                        dark:border-gray-600
+                        dark:bg-gray-700
+                        form-select
+                      focus:border-purple-600 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray
+                  rounded-md
+                    border-gray-200
+                  "
+                  %>
+                  <%= error_tag f, :company_id %>
+              </label>
+
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400 font-semibold">
+                  Category
+                </span>
+                <%= select f, :category_id, Enum.map(@categories, &{&1.name, &1.id}),
+                class: "block
+                        w-full
+                        mt-1
+                        text-sm
+                        dark:text-gray-300
+                        dark:border-gray-600
+                        dark:bg-gray-700
+                        form-select
+                      focus:border-purple-600 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray
+                  rounded-md
+                    border-gray-200
+                  "
+                  %>
+
+
+              </label>
+
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400 font-semibold" >Message</span>
+
+                <%= textarea f, :question, [ class: "block
+                  w-full
+                  mt-1
+                  text-sm
+                  dark:text-gray-300
+                  dark:border-gray-600
+                  dark:bg-gray-700
+                  form-textarea
+                  rounded-md
+                  border-gray-200
+                   focus:border-purple-600
+                   focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray", placeholder: "Write here what bothers you..."] %>
+              </label>
+              <div class="flex mt-6 text-sm">
+                <input type="submit" name="Send" class=" px-3 py-1 rounded-lg bg-purple-600 text-gray-100 text-md border-gray-300 border shadow-lg "  />
+              </div>
+            </div>
+<% end  %>
+</div>

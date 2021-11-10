@@ -19,7 +19,7 @@ defmodule TamanoirWeb.Router do
   scope "/", TamanoirWeb do
     pipe_through [:browser, :require_authenticated_user]
 
-    get "/", PageController, :index
+    get "/", DashboardController, :index
   end
 
   # Other scopes may use custom stacks.
@@ -72,6 +72,16 @@ defmodule TamanoirWeb.Router do
     get "/users/administration/index", UserAdministrationController, :index
     get "/users/administration/show/:id", UserAdministrationController, :show
   end
+
+
+  ## Support routes (Tickets, etc..)
+  scope "/", TamanoirWeb do
+    pipe_through [:browser, :require_authenticated_user]
+    get "/tickets/", Ticket.TicketController, :index
+    get "/tickets/new", Ticket.TicketController, :new
+    post "/tickets/new", Ticket.TicketController, :create
+  end
+
 
   scope "/", TamanoirWeb do
     pipe_through [:browser]

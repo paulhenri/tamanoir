@@ -12,6 +12,8 @@ defmodule Tamanoir.Company.Company do
 
     many_to_many :users, Tamanoir.Accounts.User, join_through: Tamanoir.User_Company
 
+    has_many :tickets, Tamanoir.Ticket.Ticket, foreign_key: :company_id
+
     timestamps()
   end
 

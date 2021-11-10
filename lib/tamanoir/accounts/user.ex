@@ -10,6 +10,10 @@ defmodule Tamanoir.Accounts.User do
 
     many_to_many :company, Tamanoir.Company.Company, join_through: Tamanoir.User_Company
 
+    has_many :opened_tickets, Tamanoir.Ticket, foreign_key: :creuser_id
+    has_many :handled_tickets, Tamanoir.Ticket, foreign_key: :takenby_user_id
+    has_many :closed_tickets, Tamanoir.Ticket, foreign_key: :closing_user_id
+
     timestamps()
   end
 

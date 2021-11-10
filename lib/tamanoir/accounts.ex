@@ -65,11 +65,16 @@ defmodule Tamanoir.Accounts do
   @doc """
     Get a single user with loaded associated companies
   """
-  def get_user_with_companies!(id) do
+  def get_user_with_companies!(id) when is_integer(id) do
       user = Repo.get(User, id)
       user = Repo.preload user, :company
+      user
   end
 
+  def get_user_with_companies!(%User{} = user) do
+    user_with_comp = Repo.preload user, :company
+    user_with_comp
+  end
 
   ## User registration
 
